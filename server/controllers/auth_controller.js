@@ -3,6 +3,7 @@ var id = 1
 
 module.exports = {
   login: function(req, res, next){
+    console.log(users)
     const { username, password} = req.body
     let match = users.find((userOb, i) => userOb.username === username && userOb.password === password)
     if (match){req.session.user.username = username, res.status(200).send(req.session.user)} else { res.sendStatus(500)}
